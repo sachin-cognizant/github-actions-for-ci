@@ -22,8 +22,9 @@ jobs:
       - name: Create new branch name
         id: new_br_name
         run:  |
-         $a = (get-date).ToUniversalTime().ToString("yyyyMMdd-HHmmss")
-         echo "NEW_BR_NAME=${{ github.event.inputs.my_input_name}}_$a" >> $GITHUB_ENV
+         $a = ${{ github.event.inputs.my_input_name}}_(get-date).ToUniversalTime().ToString("yyyyMMdd-HHmmss")
+         echo $a
+         echo "NEW_BR_NAME=$a" >> $GITHUB_ENV
         
       - name: Display new branch name
         id: display_new_br_name
