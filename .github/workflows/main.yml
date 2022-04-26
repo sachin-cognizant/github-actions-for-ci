@@ -18,10 +18,16 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:          
+    
+      - name: Dynamically set MY_DATE environment variable
+        run: echo "MY_DATE=2020-10-07T12:00:00+01:00" >> $GITHUB_ENV
+      - name: Test MY_DATE variable
+        run: echo ${{ env.MY_DATE }}
+    
       - name: Create new branch name
         id: new_br_name
         run: echo "NEW_BR_NAME=${{ github.event.inputs.my_input_name}}_$(date +'%Y-%m-%d')" >> $GITHUB_ENV
         
       - name: Display new branch name
         id: display_new_br_name
-        run: echo {{ env.NEW_BR_NAME }}
+        run: echo ${{ env.NEW_BR_NAME }}
