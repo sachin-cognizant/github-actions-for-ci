@@ -26,4 +26,4 @@ jobs:
         
       - name: Display new branch name
         id: display_new_br_name
-        run: echo ${{ env.NEW_BR_NAME  }}
+        run: echo ${{ env:NEW_BR_NAME  }}
