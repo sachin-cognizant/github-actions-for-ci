@@ -18,11 +18,21 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:          
-        
+      
+      - name: Set the value
+        id: step_one
+        run: |
+          "action_state=yellow" >> $env:GITHUB_ENV
+          
+      - name: Use the value
+        id: step_two
+        run: |
+          Write-Output "${{ env.action_state }}" # This will output 'yellow'
+      
       - name: Create new branch name
         id: new_br_name
         run:  |
-         "NEW_BR_NAME=${{ github.event.inputs.my_input_name}}_(get-date).ToUniversalTime().ToString("yyyyMMdd-HHmmss")" >> $env:GITHUB_ENV
+         "NEW_BR_NAME=${{ github.event.inputs.my_input_name}}_(get-date).ToUniversalTime().ToString('yyyyMMdd-HHmmss')" >> $env:GITHUB_ENV
         
       - name: Display new branch name
         id: display_new_br_name
