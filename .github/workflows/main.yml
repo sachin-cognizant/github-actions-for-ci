@@ -20,7 +20,7 @@ jobs:
     steps:          
       - name: Create new branch name
         id: new_br_name
-        run: echo "::set-output name=NEW_BR_NAME::${{ github.event.inputs.my_input_name}}_$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        run: echo "NEW_BR_NAME=${{ github.event.inputs.my_input_name}}_$(date +'%Y-%m-%d')" >> $GITHUB_ENV
         
       - name: Display new branch name
         id: display_new_br_name
