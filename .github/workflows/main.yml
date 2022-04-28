@@ -33,7 +33,7 @@ jobs:
         id: new_br_name
         run:  |
          $dt = (get-date).ToUniversalTime().ToString('yyyyMMdd-HHmmss')
-         "NEW_BR_NAME=${{ github.event.inputs.my_input_name}}_$dt" >> $env:GITHUB_ENV
+         "NEW_BR_NAME=${{ github.event.inputs.my_input_name}}_$dt.zip" >> $env:GITHUB_ENV
          #"NEW_BR_NAME1=${{ github.event.inputs.my_input_name}} + '_' + (get-date).ToUniversalTime().ToString('yyyyMMdd-HHmmss')" >> $env:GITHUB_ENV
          "NEW_BR_NAME2=${{ github.event.inputs.my_input_name}}_((get-date).ToUniversalTime().ToString('yyyyMMdd-HHmmss'))" >> $env:GITHUB_ENV
         
