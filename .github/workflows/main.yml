@@ -53,6 +53,6 @@ jobs:
     steps:          
                 
       - name: Display env var
-        id: step_2.1
+        id: step_2_1
         run: |
          echo ${{ env.NEW_BR_NAME  }}
