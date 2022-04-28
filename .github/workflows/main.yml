@@ -12,7 +12,7 @@ on:
         default: abcd_123
 
 env:
-  NEW_BR_NAME: '1234567'  
+  NEW_NAME: '1234567'  
 
 jobs:
   build:
@@ -39,6 +39,7 @@ jobs:
          "NEW_BR_NAME=${{ github.event.inputs.my_input_name}}_$dt.zip" >> $env:GITHUB_ENV
          #"NEW_BR_NAME1=${{ github.event.inputs.my_input_name}} + '_' + (get-date).ToUniversalTime().ToString('yyyyMMdd-HHmmss')" >> $env:GITHUB_ENV
          "NEW_BR_NAME2=${{ github.event.inputs.my_input_name}}_((get-date).ToUniversalTime().ToString('yyyyMMdd-HHmmss'))" >> $env:GITHUB_ENV
+         ${{ env.NEW_NAME }} = ${{ github.event.inputs.my_input_name}}_$dt.zip
         
       - name: Display new branch name
         id: display_new_br_name
@@ -57,4 +58,4 @@ jobs:
       - name: Display env var
         id: step_2_1
         run: |
-         echo ${{ env.NEW_BR_NAME  }}
+         echo ${{ env.NEW_NAME  }}
